@@ -5,7 +5,7 @@ import ViewIcon from '@material-ui/icons/Visibility'
 
 export default function DeleteBtn (props) {
   return (
-    <Button variant='contained' color='secondary' className={null}>
+    <Button variant='contained' color='primary' className={null}>
       View
       <ViewIcon />
     </Button>
