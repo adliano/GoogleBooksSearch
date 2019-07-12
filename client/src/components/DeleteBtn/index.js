@@ -1,16 +1,22 @@
 import React from "react";
-import Button from '@material-ui/core/Button'
-// Styles
-import "./style.css";
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 
-// The ...props means, spread all of the passed props onto this element
-// That way we don't have to define them all individually
+// Styles
+// import "./style.css";
+
 export default function DeleteBtn(props) {
   return (
-    <Button>delete</Button>
-    // <span className="delete-btn" {...props} role="button" tabIndex="0">
-    //   ✗
-    // </span>
+    <Button variant="contained" color="secondary" className={null}>
+        Delete
+        <DeleteIcon className={null} />
+      </Button>
   );
 }
 
+//////// NOtes \\\\\\\\\
+/*
+    // <span className="delete-btn" {...props} role="button" tabIndex="0">
+    //   ✗
+    // </span>
+*/
