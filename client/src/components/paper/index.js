@@ -14,12 +14,6 @@ export default function PaperSheet(props) {
     <div>
       <Paper className={classes.root}>
           {props.children}
-        {/* <Typography variant="h2" component="h3" align='center'>
-          {props.h2}
-        </Typography>
-        <Typography component="p" align='center'>
-          {props.p}
-        </Typography> */}
       </Paper>
     </div>
   );
