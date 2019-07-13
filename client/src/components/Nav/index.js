@@ -22,7 +22,7 @@ export default function Nav () {
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          News
+          Google Books Search
         </Typography>
         <Button color="inherit"><SearchIcon/></Button>
         <Button color="inherit"><SaveIcon/></Button>
