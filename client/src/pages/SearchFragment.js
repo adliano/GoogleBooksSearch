@@ -1,23 +1,17 @@
 import React from 'react'
-// import Books from './pages/Books'
-import Nav from '../components/Nav'
 import Paper from '../components/paper'
-import { H2, H5, P } from '../components/headers'
+import { H5 } from '../components/headers'
 
-import TextField from '@material-ui/core/TextField'
-import Box from '@material-ui/core/Box'
-import IconButton from '@material-ui/core/IconButton'
 import Search from '@material-ui/icons/Search'
-import InputAdornment from '@material-ui/core/InputAdornment'
+import {
+  TextField,
+  Box,
+  IconButton,
+  InputAdornment,
+ } from '@material-ui/core'
+
 
 function SearchFragment (props) {
-  /**
-   * Theme
-   */
-  const theme = {
-    spacing: 8
-  }
-
   return (
     <div>
       <Paper>

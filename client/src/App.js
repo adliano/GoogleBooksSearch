@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-// Imports fro Material UI Cores
-import { TextField, Box, IconButton, InputAdornment } from '@material-ui/core/'
-// Imports fro Material UI Icons
-import { Search } from '@material-ui/icons/'
 // Import for pages
 import SearchFragment from './pages/SearchFragment'
 // Import for Components
