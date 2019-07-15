@@ -18,7 +18,7 @@ function App () {
    * Theme
    */
   const theme = {
-    spacing: 8
+    spacing: 4
   }
 
   return (

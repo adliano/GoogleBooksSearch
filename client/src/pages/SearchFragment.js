@@ -46,12 +46,12 @@ function SearchFragment (props) {
             }}
             fullWidth
           />
-          <Box m={2}>
-            {props.children}
-          </Box>
           {/* list https://material-ui.com/components/lists/ */}
         </Box>
       </Paper>
+          <Paper>
+            {props.children}
+          </Paper>
     </div>
   )
 }

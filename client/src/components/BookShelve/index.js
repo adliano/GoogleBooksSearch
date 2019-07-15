@@ -8,6 +8,8 @@ import IconButton from '@material-ui/core/IconButton'
 import Search from '@material-ui/icons/Search'
 import InputAdornment from '@material-ui/core/InputAdornment'
 
+import Book from '../Book'
+
 function BookShelve () {
   /**
    * Theme
@@ -18,16 +20,17 @@ function BookShelve () {
 
   return (
     <div>
-        <Box m={2} border={1} borderColor="grey.500" borderRadius={5}>
-          <H5 style={{ margin: 10 }} align='inherit'>
-            Results
-          </H5>
+      <Box m={2}>
+        <H5 style={{ margin: 10 }} align='inherit'>
+          Results
+        </H5>
+        <Box border={1} borderColor='grey.500' borderRadius={5}>
           {/* ************************************************************** */}
-          
+          <Book />
+          {/* <Book /> */}
           {/* *************************************************************** */}
-
-          {/* list https://material-ui.com/components/lists/ */}
         </Box>
+      </Box>
     </div>
   )
 }
