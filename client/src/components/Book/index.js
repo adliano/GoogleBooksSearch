@@ -46,7 +46,7 @@ function Book (props) {
           <Grid item sm={5} xs={12}>
             <Card>
               <CardMedia
-                style={{ height: 250, margin: '1%' }}
+                style={{ height: 250, margin: '1.5%' }}
                 image={props.src}
                 title='Book Image'
               />
@@ -75,12 +75,12 @@ function Book (props) {
                     }}
                   >
                     <Grid item xs={2}>
-                      <Fab color='primary'>
+                      <Fab color='primary' onClick={props.saveEventListener}>
                         <Save />
                       </Fab>
                     </Grid>
                     <Grid item xs={2}>
-                      <Fab color='secondary'>
+                      <Fab color='secondary' onClick={props.viewEventListner}>
                         <Visibility />
                       </Fab>
                     </Grid>
