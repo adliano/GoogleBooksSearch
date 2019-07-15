@@ -11,6 +11,7 @@ import Search from '@material-ui/icons/Search'
 import InputAdornment from '@material-ui/core/InputAdornment'
 
 import SearchFragment from './pages/SearchFragment'
+import BookShelve from './components/BookShelve'
 
 function App () {
   /**
@@ -28,7 +29,9 @@ function App () {
         <H2 align='center'>Google Books Search</H2>
         <P align='center'>Search for and Save Books of Interest</P>
       </Paper>
-      <SearchFragment />
+      <SearchFragment>
+        <BookShelve />
+      </SearchFragment>
     </div>
   )
 }

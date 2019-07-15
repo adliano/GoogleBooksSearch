@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Search from '@material-ui/icons/Search'
 import InputAdornment from '@material-ui/core/InputAdornment'
 
-function SearchFragment () {
+function SearchFragment (props) {
   /**
    * Theme
    */
@@ -25,7 +25,6 @@ function SearchFragment () {
           <H5 style={{ margin: 10 }} align='inherit'>
             Book Search
           </H5>
-          {/* ************************************************************** */}
           <TextField
             id='outlined-adornment-password'
             // className={clsx(classes.margin, classes.textField)}
@@ -47,8 +46,9 @@ function SearchFragment () {
             }}
             fullWidth
           />
-          {/* *************************************************************** */}
-
+          <Box m={2}>
+            {props.children}
+          </Box>
           {/* list https://material-ui.com/components/lists/ */}
         </Box>
       </Paper>
