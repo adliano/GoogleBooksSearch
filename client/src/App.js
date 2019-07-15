@@ -49,14 +49,21 @@ class App extends Component {
    * Event listner used for search button
    */
   onSearchClick = event => {
-    console.log('===========================');
-    console.log(event.target)    
-    console.log('===========================');
-    
+    console.log('===========================')
+    console.log(event.target)
+    console.log('===========================')
   }
   /**
-   * 
+   * handleInputChange
    */
+  handleInputChange = event => {
+    const value = event.target.value
+    this.setState(
+      { query: value },
+      // Callbach for setState()
+      () => console.log(this.state.query)
+    )
+  }
   /**
    * renderBooks()
    * @method used to render <Book> on page
@@ -103,10 +110,13 @@ class App extends Component {
           <P align='center'>Search for and Save Books of Interest</P>
         </Paper>
         {/* Change pages here */}
-        <SearchFragment searchEventListner={this.onSearchClick}/>
-          <BookShelve header='Book Search'>
-            {this.renderBooks(this.state.books)}
-          </BookShelve>
+        <SearchFragment
+          searchEventListner={this.onSearchClick}
+          onInputChange={this.handleInputChange}
+        />
+        <BookShelve header='Book Search'>
+          {this.renderBooks(this.state.books)}
+        </BookShelve>
       </div>
     )
   }
