@@ -30,6 +30,7 @@ function SearchFragment (props) {
             variant='outlined'
             type='text'
             label='Search'
+            onChange={props.onInputChange}
             style={{ margin: 10 }}
             InputProps={{
               endAdornment: (
