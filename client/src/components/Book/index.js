@@ -1,18 +1,22 @@
 import React from 'react'
 import { H2, H5, P } from '../headers'
 
-import Box from '@material-ui/core/Box'
-import IconButton from '@material-ui/core/IconButton'
-import Visibility from '@material-ui/icons/Visibility'
-import Save from '@material-ui/icons/Save'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import Grid from '@material-ui/core/Grid'
-import CardMedia from '@material-ui/core/CardMedia'
-import Card from '@material-ui/core/Card'
+import {
+  Box,
+  IconButton,
+  InputAdornment,
+  Grid,
+  Card,
+  CardMedia,
+  Paper,
+} from '@material-ui/core/'
+
+import {
+  Visibility,
+  Save,
+ } from '@material-ui/icons/'
 
 import { makeStyles } from '@material-ui/core/styles'
-
-import Paper from '@material-ui/core/Paper'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,73 +43,37 @@ function Book () {
   return (
     <div>
       <Box borderTop={1} borderColor='grey.500'>
-        {/* <Grid container direction='row' justify='center' alignItems='center'> */}
-        {/* *********** Top Row *********** */}
-        <Grid container direction='row' justify='center' alignItems='center'>
-          {/* Grid with the Book info */}
+        <Grid container direction='row' justify='center' alignItems='center'
+        style={{
+          backgroundColor: 'yellow',
+          textAlign: 'center',
+          padding: '2px'
+        }}
+        >
+        {/* <Grid container xs={4} direction='column' justify='center' alignItems='center'> */}
           <Grid
             item
-            xs={3}
-            style={{
-              // backgroundColor: 'green',
-              // color: 'white',
-              padding: '25px'
-            }}
-          >
-            <H5>Book Name</H5>
-            <P>the book it great to read it</P>
-            <P>Someone wrote it</P>
-          </Grid>
-          {/*  Empty grid to use as spacer */}
-          <Grid item xs={6} />
-          {/* Grid with the buttons */}
-          <Grid
-            item
-            xs={3}
-            style={{
-              //   backgroundColor: 'blue',
-              //   color: 'white',
-              textAlign: 'center',
-              padding: '25px'
-            }}
-          >
-            <IconButton style={{ marginRight: '25px' }}>
-              <Visibility />
-            </IconButton>
-            <IconButton style={{ marginRight: '25px' }}>
-              <Save />
-            </IconButton>
-          </Grid>
-        </Grid>
-        {/* *********** Top Row *********** */}
-        <Grid container direction='row' justify='center' alignItems='center'>
-          <Grid
-            item
-            xs={4}
+            xs={5}
             style={{
               backgroundColor: 'blue',
               textAlign: 'center',
-              padding: '25px'
+              padding: '2px'
             }}
-          >
-            <Card>
-              <CardMedia
-                image='https://via.placeholder.com/350x350'
-                title='Contemplative Reptile'
-              />
-            </Card>
+            >
+              something
           </Grid>
           <Grid
             item
-            xs={8}
+            xs={7}
             style={{
-              backgroundColor: 'yellow',
+              backgroundColor: 'green',
               textAlign: 'center',
-              padding: '25px'
+              padding: '2px'
             }}
-          >
-            X4
+            >
+            Something
           </Grid>
+            {/* </Grid> */}
         </Grid>
       </Box>
     </div>
@@ -113,3 +81,10 @@ function Book () {
 }
 
 export default Book
+
+// {/* <Card>
+//   <CardMedia
+//     image='https://via.placeholder.com/350x350'
+//     title='Contemplative Reptile'
+//     />
+// </Card> */}
