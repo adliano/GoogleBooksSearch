@@ -38,7 +38,10 @@ class App extends Component {
       .then(booksArray => this.setState({ books: booksArray }, () => console.log(booksArray)
       ))
       .catch(err => {
+        console.log('=========================================');
         console.error(err)
+        console.log('=========================================');
+        
       })
   }
   /**
@@ -74,7 +77,7 @@ class App extends Component {
           title,
           authors,
           previewLink,
-          imageLinks: { thumbnail },
+          imageLinks: { thumbnail = '' },
           description
         }
       }) => {
@@ -87,7 +90,7 @@ class App extends Component {
             author={authors}
             previewLink={previewLink}
             thumbnail={thumbnail}
-            description={description}
+            description={description} 
           />
         )
       }
