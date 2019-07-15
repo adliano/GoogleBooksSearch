@@ -24,9 +24,15 @@ function BookShelve () {
         <H5 style={{ margin: 10 }} align='inherit'>
           Results
         </H5>
-        <Box border={1} borderColor='grey.500' borderRadius={5}>
+        <Box border={0} borderColor='grey.500' borderRadius={5}>
           {/* ************************************************************** */}
-          <Book />
+          <Book name='Book Name' author='Somebody' src='https://via.placeholder.com/250x250' about='about the book here'/>
+          <Book name='Book Name' author='Somebody' src='https://via.placeholder.com/250x250' about='about the book here'/>
+          <Book name='Book Name' author='Somebody' src='https://via.placeholder.com/250x250' about='about the book here'/>
+          <Book name='Book Name' author='Somebody' src='https://via.placeholder.com/250x250' about='about the book here'/>
+          <Book name='Book Name' author='Somebody' src='https://via.placeholder.com/250x250' about='about the book here'/>
+          <Book name='Book Name' author='Somebody' src='https://via.placeholder.com/250x250' about='about the book here'/>
+          <Book name='Book Name' author='Somebody' src='https://via.placeholder.com/250x250' about='about the book here'/>
           {/* <Book /> */}
           {/* *************************************************************** */}
         </Box>
@@ -36,3 +42,8 @@ function BookShelve () {
 }
 
 export default BookShelve
+
+/* <H3>{props.name}</H3>
+              <H5>{props.gretting}</H5>
+              <H5>{props.author}</H5>
+              <P>{props.about}</P> */
