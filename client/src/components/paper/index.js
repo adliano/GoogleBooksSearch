@@ -11,10 +11,10 @@ export default function PaperSheet(props) {
   const classes = style();
   /// Return the component
   return (
-    <div>
+    <>
       <Paper className={classes.root}>
           {props.children}
       </Paper>
-    </div>
+    </>
   );
 }

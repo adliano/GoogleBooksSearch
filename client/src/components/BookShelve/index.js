@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'
 import Search from '@material-ui/icons/Search'
 import InputAdornment from '@material-ui/core/InputAdornment'
+import Paper from '../paper/index.js'
 
 import Book from '../Book'
 
@@ -19,16 +20,18 @@ function BookShelve (props) {
   }
 
   return (
-    <div>
-      <Box m={2}>
-        <H5 style={{ margin: 10 }} align='inherit'>
-          {props.header}
-        </H5>
-        <Box border={0} borderColor='grey.500' borderRadius={5}>
-          {props.children}
+    <>
+      <Paper>
+        <Box m={2}>
+          <H5 style={{ margin: 10 }} align='inherit'>
+            {props.header}
+          </H5>
+          <Box border={0} borderColor='grey.500' borderRadius={5}>
+            {props.children}
+          </Box>
         </Box>
-      </Box>
-    </div>
+      </Paper>
+    </>
   )
 }
 
@@ -38,7 +41,7 @@ export default BookShelve
               <H5>{props.gretting}</H5>
               <H5>{props.author}</H5>
               <P>{props.about}</P> */
-              /*
+/*
 {
     id: "N9Sk0uyOf-8C"
     title: "Crash",

@@ -45,6 +45,9 @@ class App extends Component {
       })
   }
   /**
+   * 
+   */
+  /**
    * renderBooks()
    * @method used to render <Book> on page
    */
@@ -90,11 +93,10 @@ class App extends Component {
           <P align='center'>Search for and Save Books of Interest</P>
         </Paper>
         {/* Change pages here */}
-        <SearchFragment>
-          <BookShelve header='Saved'>
+        <SearchFragment searchEventListner={null}/>
+          <BookShelve header='Book Search'>
             {this.renderBooks(this.state.books)}
           </BookShelve>
-        </SearchFragment>
       </div>
     )
   }

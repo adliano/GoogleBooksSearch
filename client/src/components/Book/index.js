@@ -80,7 +80,7 @@ function Book (props) {
                       </Fab>
                     </Grid>
                     <Grid item xs={2}>
-                      <Fab color='secondary' href={props.previewLink}>
+                      <Fab color='secondary' href={props.previewLink} target="_blank">
                         <Visibility />
                       </Fab>
                     </Grid>

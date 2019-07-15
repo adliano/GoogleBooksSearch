@@ -27,7 +27,6 @@ function SearchFragment (props) {
           </H5>
           <TextField
             id='outlined-adornment-password'
-            // className={clsx(classes.margin, classes.textField)}
             variant='outlined'
             type='text'
             label='Search'
@@ -37,7 +36,7 @@ function SearchFragment (props) {
                 <InputAdornment position='end'>
                   <IconButton
                     edge='end'
-                    // onClick={handleClickShowPassword}
+                    onClick={props.searchEventListner}
                   >
                     <Search />
                   </IconButton>
@@ -46,12 +45,8 @@ function SearchFragment (props) {
             }}
             fullWidth
           />
-          {/* list https://material-ui.com/components/lists/ */}
         </Box>
       </Paper>
-          <Paper>
-            {props.children}
-          </Paper>
     </div>
   )
 }
