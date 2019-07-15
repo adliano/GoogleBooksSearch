@@ -1,109 +1,103 @@
-import React, { Component }from 'react'
-// 
+import React, { Component } from 'react'
+// Imports fro Material UI Cores
+import { TextField, Box, IconButton, InputAdornment } from '@material-ui/core/'
+// Imports fro Material UI Icons
+import { Search } from '@material-ui/icons/'
+// Import for pages
+import SearchFragment from './pages/SearchFragment'
+// Import for Components
 import Nav from './components/Nav'
 import Paper from './components/paper'
 import { H2, H5, P } from './components/headers'
 import BookShelve from './components/BookShelve'
 import Book from './components/Book'
-import SearchFragment from './pages/SearchFragment'
-// 
-import {
-  TextField,
-  Box,
-  IconButton,
-  InputAdornment,
-} from '@material-ui/core/'
-// 
-import {
-  Search,
-} from '@material-ui/icons/'
-// 
 // ************* DotEnv ******************
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from './utils/Key'
-// 
 dotenv.config()
 // ***************************************
 
 class App extends Component {
-
+  /**
+   * Application State
+   */
   state = {
-    books:[],
+    books: []
   }
-
-  componentDidMount(){
-    // TODO: Fetch data from google api here
+  /**
+   * Lifecycle
+   * componentDidMount()
+   */
+  componentDidMount () {
     this.searchGoogleBooks('harry potter')
   }
   /**
    * searchGoogleBooks
-   * Method to get books from google API
+   * @method to get books from google API
    */
-  searchGoogleBooks = (query) => {
+  searchGoogleBooks = query => {
     fetch(`${Keys.URL}?q=${query}`)
-    .then(response => response.json())
-    .then(results => results.items)
-    .then(booksArray => {
-      //
-      // console.log(booksArray[0].volumeInfo)
-      //
-      // let _booksElements = booksArray.map(({ id, volumeInfo: { title, authors, previewLink, imageLinks: { thumbnail }, description } }) => {
-        
-      //   // console.log(id)
-      //   // console.log(title)
-      //   // console.log(authors)
-      //   // console.log(previewLink)
-      //   // console.log(thumbnail)
-      //   // console.log(description)
-
-      //   return (<><Book id={id} title={title} author={authors} previewLink={previewLink} thumbnail={thumbnail} description={description}/></>)
-        
-      // })
-      // // <Book title='' author='' previewLink='' thumbnail='' description=""/>
-      // console.log(_booksElements[0])
-
-      // //
-      this.setState({ books: booksArray })
-    })
+      .then(response => response.json())
+      .then(results => results.items)
+      .then(booksArray => this.setState({ books: booksArray }))
+      .catch(err => {
+        console.error(err)
+      })
   }
-    /**
-     * 
-     */
-    renderBooks = (booksArray) => {
-      let _booksElements = booksArray.map(({ id, volumeInfo: { title, authors, previewLink, imageLinks: { thumbnail }, description } }) => {
-        
-        // console.log(id)
-        // console.log(title)
-        // console.log(authors)
-        // console.log(previewLink)
-        // console.log(thumbnail)
-        // console.log(description)
-
-        return (<Book id={id} title={title} author={authors} previewLink={previewLink} thumbnail={thumbnail} description={description}/>)
-        
-      }) 
-
-      return _booksElements;
-    } 
+  /**
+   * renderBooks()
+   * @method used to render <Book> on page
+   */
+  renderBooks = booksArray => {
+    // Destructing object
+    let _booksElements = booksArray.map(
+      ({
+        id,
+        volumeInfo: {
+          title,
+          authors,
+          previewLink,
+          imageLinks: { thumbnail },
+          description
+        }
+      }) => {
+        // each Book available in the JSON will be
+        // Added as <Book> element in _booksElements array
+        return (
+          <Book
+            id={id}
+            title={title}
+            author={authors}
+            previewLink={previewLink}
+            thumbnail={thumbnail}
+            description={description}
+          />
+        )
+      }
+    )
+    // Return Array of <Book> elements
+    return _booksElements
+  }
   /**
    * Render
    */
-  render(){
+  render () {
     return (
       <div>
-      <Nav />
-      <Paper>
-        <H2 align='center'>Google Books Search</H2>
-        <P align='center'>Search for and Save Books of Interest</P>
-      </Paper>
-      <SearchFragment>
-        <BookShelve header='Saved'>
-        {this.renderBooks(this.state.books)}
-        </BookShelve>
-      </SearchFragment>
-    </div>
-  )
-}
+        <Nav />
+        <Paper>
+          <H2 align='center'>Google Books Search</H2>
+          <P align='center'>Search for and Save Books of Interest</P>
+        </Paper>
+        {/* Change pages here */}
+        <SearchFragment>
+          <BookShelve header='Saved'>
+            {this.renderBooks(this.state.books)}
+          </BookShelve>
+        </SearchFragment>
+      </div>
+    )
+  }
 }
 
 export default App
