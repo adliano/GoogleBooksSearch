@@ -45,6 +45,16 @@ class App extends Component {
       })
   }
   /**
+   * onSearchClick()
+   * Event listner used for search button
+   */
+  onSearchClick = event => {
+    console.log('===========================');
+    console.log(event.target)    
+    console.log('===========================');
+    
+  }
+  /**
    * 
    */
   /**
@@ -93,7 +103,7 @@ class App extends Component {
           <P align='center'>Search for and Save Books of Interest</P>
         </Paper>
         {/* Change pages here */}
-        <SearchFragment searchEventListner={null}/>
+        <SearchFragment searchEventListner={this.onSearchClick}/>
           <BookShelve header='Book Search'>
             {this.renderBooks(this.state.books)}
           </BookShelve>
