@@ -40,14 +40,14 @@ function Book (props) {
    */
   return (
     <>
-      <Box border={1} mb={1} borderColor='grey.500' borderRadius={5}>
+      <Box border={1} mb={1} borderColor='grey.500' borderRadius={5} id={props.id}>
         <Grid container alignItems='center'>
           {/* Image Container */}
           <Grid item sm={5} xs={12}>
             <Card>
               <CardMedia
                 style={{ height: 250, margin: '1.5%' }}
-                image={props.src}
+                image={props.thumbnail}
                 title='Book Image'
               />
             </Card>
@@ -56,10 +56,10 @@ function Book (props) {
           <Grid item sm={7} xs={12}>
             <Grid container direction='column' style={{ margin: '1%' }}>
               <Grid item style={{ height: '100%', padding: '2%' }}>
-                <H3>{props.name}</H3>
+                <H3>{props.title}</H3>
                 <H5>{props.gretting}</H5>
                 <H5>{props.author}</H5>
-                <P>{props.about}</P>
+                <P>{props.description}</P>
               </Grid>
               <Grid item style={{ height: '100%', padding: '2%' }}>
                 <Grid container direction='column-reverse'>
@@ -80,7 +80,7 @@ function Book (props) {
                       </Fab>
                     </Grid>
                     <Grid item xs={2}>
-                      <Fab color='secondary' onClick={props.viewEventListner}>
+                      <Fab color='secondary' href={props.previewLink}>
                         <Visibility />
                       </Fab>
                     </Grid>
