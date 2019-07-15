@@ -10,7 +10,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 
 import Book from '../Book'
 
-function BookShelve () {
+function BookShelve (props) {
   /**
    * Theme
    */
@@ -22,7 +22,7 @@ function BookShelve () {
     <div>
       <Box m={2}>
         <H5 style={{ margin: 10 }} align='inherit'>
-          Results
+          {props.header}
         </H5>
         <Box border={0} borderColor='grey.500' borderRadius={5}>
           {/* ************************************************************** */}
