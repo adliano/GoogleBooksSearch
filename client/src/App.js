@@ -29,7 +29,7 @@ class App extends Component {
    * componentDidMount()
    */
   componentDidMount () {
-    this.searchGoogleBooks('harry potter')
+    // this.searchGoogleBooks('harry potter')
   }
   /**
    * searchGoogleBooks
@@ -39,7 +39,8 @@ class App extends Component {
     fetch(`${Keys.URL}?q=${query}`)
       .then(response => response.json())
       .then(results => results.items)
-      .then(booksArray => this.setState({ books: booksArray }))
+      .then(booksArray => this.setState({ books: booksArray }, () => console.log(booksArray)
+      ))
       .catch(err => {
         console.error(err)
       })
@@ -49,20 +50,20 @@ class App extends Component {
    * Event listner used for search button
    */
   onSearchClick = event => {
-    console.log('===========================')
-    console.log(event.target)
-    console.log('===========================')
+    let _query = this.state.query
+    if (_query) {
+      this.searchGoogleBooks(this.state.query)
+    } else {
+      // TODO: Create a error handler later
+      console.log('Missing Query')
+    }
   }
   /**
    * handleInputChange
    */
   handleInputChange = event => {
     const value = event.target.value
-    this.setState(
-      { query: value },
-      // Callbach for setState()
-      () => console.log(this.state.query)
-    )
+    this.setState({ query: value })
   }
   /**
    * renderBooks()
