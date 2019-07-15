@@ -30,7 +30,7 @@ function App () {
         <P align='center'>Search for and Save Books of Interest</P>
       </Paper>
       <SearchFragment>
-        <BookShelve />
+        <BookShelve header='Saved'/>
       </SearchFragment>
     </div>
   )
