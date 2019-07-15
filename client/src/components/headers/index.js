@@ -16,6 +16,17 @@ export function H2 (props) {
   )
 }
 
+export function H3 (props) {
+  /// Return the <h2> component
+  return (
+    <>
+      <Typography variant='h3' component='h3' {...props}>
+        {props.children}
+      </Typography>
+    </>
+  )
+}
+
 export function P (props) {
     /// Return the <p> component
     return (
