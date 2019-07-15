@@ -1,29 +1,35 @@
-import React from 'react'
-// import Books from './pages/Books'
+import React, { Component }from 'react'
+
 import Nav from './components/Nav'
 import Paper from './components/paper'
-import { H2, H5, P } from './components/headers'
-
-import TextField from '@material-ui/core/TextField'
-import Box from '@material-ui/core/Box'
-import IconButton from '@material-ui/core/IconButton'
-import Search from '@material-ui/icons/Search'
-import InputAdornment from '@material-ui/core/InputAdornment'
-
 import SearchFragment from './pages/SearchFragment'
+import { H2, H5, P } from './components/headers'
 import BookShelve from './components/BookShelve'
 
-function App () {
-  /**
-   * Theme
-   */
-  const theme = {
-    spacing: 4
-  }
+import {
+  TextField,
+  Box,
+  IconButton,
+  InputAdornment,
+} from '@material-ui/core/'
 
-  return (
-    <div>
-      {/* <Books /> */}
+import {
+  Search,
+ } from '@material-ui/icons/'
+
+
+class App extends Component {
+
+  componentDidMount(){
+    // TODO: Fetch data from google api here
+    let _URL = `https://www.googleapis.com/books/v1/volumes?q=` + 'bookname'
+  }
+  /**
+   * Render
+   */
+  render(){
+    return (
+      <div>
       <Nav />
       <Paper>
         <H2 align='center'>Google Books Search</H2>
@@ -34,6 +40,7 @@ function App () {
       </SearchFragment>
     </div>
   )
+}
 }
 
 export default App
