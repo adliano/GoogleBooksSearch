@@ -1,18 +1,22 @@
 import React from 'react'
-import Books from './pages/Books'
+// import Books from './pages/Books'
 import Nav from './components/Nav'
 import Paper from './components/paper'
 import { H2, H5, P } from './components/headers'
 
+import Box from '@material-ui/core/Box';
+
+
 function App () {
   return (
     <div>
-      <Nav />
       {/* <Books /> */}
+      <Nav />
       <Paper>
         <H2 align='center'>Google Books Search</H2>
         <P align='center'>Search for and Save Books of Interest</P>
       </Paper>
+      {/* Here will happen the renders change */}
       <Paper>
         <P align='inherit'>Saved Books</P>
         <Paper>
