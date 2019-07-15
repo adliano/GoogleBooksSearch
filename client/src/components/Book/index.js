@@ -58,7 +58,7 @@ function Book (props) {
               <Grid item style={{ height: '100%', padding: '2%' }}>
                 <H3>{props.title}</H3>
                 <H5>{props.gretting}</H5>
-                <H5>{props.author}</H5>
+                <H5>{props.authors}</H5>
                 <P>{props.description}</P>
               </Grid>
               <Grid item style={{ height: '100%', padding: '2%' }}>

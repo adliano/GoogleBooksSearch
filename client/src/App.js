@@ -28,7 +28,7 @@ dotenv.config()
 class App extends Component {
 
   state = {
-    booksResults:[],
+    books:[],
   }
 
   componentDidMount(){
@@ -47,21 +47,44 @@ class App extends Component {
       //
       // console.log(booksArray[0].volumeInfo)
       //
-      let _booksElements = booksArray.map(({ volumeInfo: { title, author, previewLink, thumbnail, description } }) => {
+      // let _booksElements = booksArray.map(({ id, volumeInfo: { title, authors, previewLink, imageLinks: { thumbnail }, description } }) => {
         
-        console.log(title)
-        console.log(author)
-        console.log(previewLink)
-        console.log(thumbnail)
-        console.log(description)
+      //   // console.log(id)
+      //   // console.log(title)
+      //   // console.log(authors)
+      //   // console.log(previewLink)
+      //   // console.log(thumbnail)
+      //   // console.log(description)
+
+      //   return (<><Book id={id} title={title} author={authors} previewLink={previewLink} thumbnail={thumbnail} description={description}/></>)
         
-      })
-      // <Book title='' author='' previewLink='' thumbnail='' description=""/>
+      // })
+      // // <Book title='' author='' previewLink='' thumbnail='' description=""/>
+      // console.log(_booksElements[0])
 
       // //
-      // this.setState({ booksResults: booksArray })
+      this.setState({ books: booksArray })
     })
   }
+    /**
+     * 
+     */
+    renderBooks = (booksArray) => {
+      let _booksElements = booksArray.map(({ id, volumeInfo: { title, authors, previewLink, imageLinks: { thumbnail }, description } }) => {
+        
+        // console.log(id)
+        // console.log(title)
+        // console.log(authors)
+        // console.log(previewLink)
+        // console.log(thumbnail)
+        // console.log(description)
+
+        return (<Book id={id} title={title} author={authors} previewLink={previewLink} thumbnail={thumbnail} description={description}/>)
+        
+      }) 
+
+      return _booksElements;
+    } 
   /**
    * Render
    */
@@ -74,7 +97,9 @@ class App extends Component {
         <P align='center'>Search for and Save Books of Interest</P>
       </Paper>
       <SearchFragment>
-        <BookShelve header='Saved'/>
+        <BookShelve header='Saved'>
+        {this.renderBooks(this.state.books)}
+        </BookShelve>
       </SearchFragment>
     </div>
   )
