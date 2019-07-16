@@ -65,7 +65,7 @@ class App extends Component {
    * renderBooks()
    * @method used to render <Book> on page
    */
-  renderBooks = booksArray => {
+  renderBooks = booksArray => {    
     // Destructing object
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
