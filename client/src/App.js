@@ -6,6 +6,7 @@ import { H2, P } from './components/headers'
 import BookShelve from './components/BookShelve'
 import Book from './components/Book'
 import SearchPage from './components/pages/SearchPage'
+import SavedPage from './components/pages/SavedPage'
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from './utils/Key'
 dotenv.config()
@@ -113,7 +114,7 @@ class App extends Component {
           <P align='center'>Search for and Save Books of Interest</P>
         </Paper>
         <Route exact path='/' component={SearchPage}/>
-        {/* <Route exact path='/' component={SearchPage}/> */}
+        <Route exact path='/saved' component={SavedPage}/>
         </>
       </BrowserRouter>
     )

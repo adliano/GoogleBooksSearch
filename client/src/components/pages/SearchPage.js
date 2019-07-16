@@ -104,12 +104,6 @@ class SearchPage extends Component {
   render () {
     return (
       <>
-        <Nav />
-        <Paper>
-          <H2 align='center'>Google Books Search</H2>
-          <P align='center'>Search for and Save Books of Interest</P>
-        </Paper>
-        {/* Change pages here */}
         <SearchFragment
           searchEventListner={this.onSearchClick}
           onInputChange={this.handleInputChange}
