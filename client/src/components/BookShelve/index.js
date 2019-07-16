@@ -6,16 +6,18 @@ import Paper from '../paper/index.js'
 function BookShelve (props) {
   return (
     <>
-      <Paper>
-        <Box m={2} maxWidth='55%'>
-          <H5 style={{ margin: 10 }} align='inherit'>
-            {props.header}
-          </H5>
-          <Box border={0} borderColor='grey.500' borderRadius={5}>
-            {props.children}
+      <Box mt={-14}>
+        <Paper>
+          <Box m={2} style={{ backgroung: 'red' }}>
+            <H5 style={{ margin: 10 }} align='inherit'>
+              {props.header}
+            </H5>
+            <Box border={0} borderColor='grey.500' borderRadius={5}>
+              {props.children}
+            </Box>
           </Box>
-        </Box>
-      </Paper>
+        </Paper>
+      </Box>
     </>
   )
 }
