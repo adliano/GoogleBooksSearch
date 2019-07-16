@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-// Import for pages
-import SearchFragment from './pages/SearchFragment'
-// Import for Components
+import { BrowserRouter, Route } from "react-router-dom";
 import Nav from './components/Nav'
 import Paper from './components/paper'
 import { H2, P } from './components/headers'
 import BookShelve from './components/BookShelve'
 import Book from './components/Book'
-// DotEnv
+import SearchFragment from './components/pages/SearchFragment'
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from './utils/Key'
 dotenv.config()
+
 
 class App extends Component {
   /**
@@ -106,21 +105,23 @@ class App extends Component {
    */
   render () {
     return (
-      <div>
+      <BrowserRouter>
+      <>
         <Nav />
         <Paper>
           <H2 align='center'>Google Books Search</H2>
           <P align='center'>Search for and Save Books of Interest</P>
         </Paper>
         {/* Change pages here */}
-        <SearchFragment
+        {/* <SearchFragment
           searchEventListner={this.onSearchClick}
           onInputChange={this.handleInputChange}
         />
         <BookShelve header='Book Search'>
           {this.renderBooks(this.state.books)}
-        </BookShelve>
-      </div>
+        </BookShelve> */}
+        </>
+      </BrowserRouter>
     )
   }
 }

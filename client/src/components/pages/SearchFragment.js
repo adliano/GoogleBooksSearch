@@ -1,6 +1,6 @@
 import React from 'react'
-import Paper from '../components/paper'
-import { H5 } from '../components/headers'
+import Paper from '../paper'
+import { H5 } from '../headers'
 
 import Search from '@material-ui/icons/Search'
 import {
