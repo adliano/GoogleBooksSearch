@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route } from "react-router-dom";
-import Nav from './components/Nav'
-import Paper from './components/paper'
-import { H2, P } from './components/headers'
-import BookShelve from './components/BookShelve'
-import Book from './components/Book'
-import SearchPage from './components/pages/SearchPage'
+import Nav from '../Nav'
+import Paper from '../paper'
+import { H2, P } from '../headers'
+import BookShelve from '../BookShelve'
+import Book from '../Book'
+import SearchFragment from '../pages/SearchFragment'
 import dotenv from 'dotenv'
-import { GoogleBooksAPI as Keys } from './utils/Key'
+import { GoogleBooksAPI as Keys } from '../../utils/Key'
 dotenv.config()
 
-
-class App extends Component {
+class SearchPage extends Component {
   /**
    * Application State
    */
@@ -64,13 +62,13 @@ class App extends Component {
    * renderBooks()
    * @method used to render <Book> on page
    */
-  renderBooks = booksArray => {    
+  renderBooks = booksArray => {
     // Destructing object
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
     let _booksElements = booksArray.map(({ id, volumeInfo }) => {
-      console.log(volumeInfo);
-      
+      console.log(volumeInfo)
+
       const {
         title,
         authors,
@@ -105,19 +103,23 @@ class App extends Component {
    */
   render () {
     return (
-      <BrowserRouter>
       <>
         <Nav />
         <Paper>
           <H2 align='center'>Google Books Search</H2>
           <P align='center'>Search for and Save Books of Interest</P>
         </Paper>
-        <Route exact path='/' component={SearchPage}/>
-        {/* <Route exact path='/' component={SearchPage}/> */}
-        </>
-      </BrowserRouter>
+        {/* Change pages here */}
+        <SearchFragment
+          searchEventListner={this.onSearchClick}
+          onInputChange={this.handleInputChange}
+        />
+        <BookShelve header='Book Search'>
+          {this.renderBooks(this.state.books)}
+        </BookShelve>
+      </>
     )
   }
 }
 
-export default App
+export default SearchPage
