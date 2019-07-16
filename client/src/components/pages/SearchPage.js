@@ -4,7 +4,7 @@ import Paper from '../paper'
 import { H2, P } from '../headers'
 import BookShelve from '../BookShelve'
 import Book from '../Book'
-import SearchFragment from '../pages/SearchFragment'
+import SearchFragment from '../SearchFragment'
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from '../../utils/Key'
 dotenv.config()
