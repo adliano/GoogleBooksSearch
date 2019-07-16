@@ -1,5 +1,5 @@
 import React from 'react'
-import { H2, H3, H5, P } from '../headers'
+import { H3, H5, P } from '../headers'
 
 import {
   Box,

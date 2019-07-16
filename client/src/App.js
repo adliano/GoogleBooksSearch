@@ -4,14 +4,13 @@ import SearchFragment from './pages/SearchFragment'
 // Import for Components
 import Nav from './components/Nav'
 import Paper from './components/paper'
-import { H2, H5, P } from './components/headers'
+import { H2, P } from './components/headers'
 import BookShelve from './components/BookShelve'
 import Book from './components/Book'
-// ************* DotEnv ******************
+// DotEnv
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from './utils/Key'
 dotenv.config()
-// ***************************************
 
 class App extends Component {
   /**
@@ -25,7 +24,7 @@ class App extends Component {
    * componentDidMount()
    */
   componentDidMount () {
-    // this.searchGoogleBooks('harry potter')
+    this.searchGoogleBooks('turbo')
   }
   /**
    * searchGoogleBooks
@@ -35,13 +34,11 @@ class App extends Component {
     fetch(`${Keys.URL}?q=${query}`)
       .then(response => response.json())
       .then(results => results.items)
-      .then(booksArray => this.setState({ books: booksArray }, () => console.log(booksArray)
-      ))
+      .then(booksArray =>
+        this.setState({ books: booksArray }, () => console.log('Data loaded'))
+      )
       .catch(err => {
-        console.log('=========================================');
         console.error(err)
-        console.log('=========================================');
-        
       })
   }
   /**
@@ -70,31 +67,35 @@ class App extends Component {
    */
   renderBooks = booksArray => {
     // Destructing object
-    let _booksElements = booksArray.map(
-      ({
-        id,
-        volumeInfo: {
-          title,
-          authors,
-          previewLink,
-          imageLinks: { thumbnail = '' },
-          description
-        }
-      }) => {
-        // each Book available in the JSON will be
-        // Added as <Book> element in _booksElements array
-        return (
-          <Book
-            id={id}
-            title={title}
-            author={authors}
-            previewLink={previewLink}
-            thumbnail={thumbnail}
-            description={description} 
-          />
-        )
-      }
-    )
+    // Some books doesn't have `imageLinks` available
+    // Therefor default img was set to void application to crash
+    let _booksElements = booksArray.map(({ id, volumeInfo }) => {
+      const {
+        title,
+        authors,
+        previewLink,
+        description,
+        imageLinks = {}
+      } = volumeInfo
+
+      const {
+        thumbnail = 'https://www.naqda.gov.lk/images/img_not_available.png'
+      } = imageLinks
+
+      // each Book available in the JSON will be
+      // Added as <Book> element in _booksElements array
+      return (
+        <Book
+          key={id}
+          id={id}
+          title={title}
+          author={authors}
+          previewLink={previewLink}
+          thumbnail={thumbnail}
+          description={description}
+        />
+      )
+    })
     // Return Array of <Book> elements
     return _booksElements
   }
