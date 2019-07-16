@@ -7,7 +7,7 @@ function BookShelve (props) {
   return (
     <>
       <Paper>
-        <Box m={2}>
+        <Box m={2} maxWidth='55%'>
           <H5 style={{ margin: 10 }} align='inherit'>
             {props.header}
           </H5>
