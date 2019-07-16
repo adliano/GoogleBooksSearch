@@ -1,40 +1,17 @@
 import React from 'react'
-import { H2, H3, H5, P } from '../headers'
+import { H3, H5, P } from '../headers'
 
 import {
   Box,
-  IconButton,
-  InputAdornment,
   Grid,
   Card,
   CardMedia,
-  Paper,
   Fab
 } from '@material-ui/core/'
 
 import { Visibility, Save } from '@material-ui/icons/'
 
-import { makeStyles } from '@material-ui/core/styles'
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'left',
-    color: theme.palette.text.secondary
-  }
-}))
-
 function Book (props) {
-  /**
-   * Themes
-   */
-  const classes = useStyles()
-  const theme = {
-    spacing: 8
-  }
   /**
    * Return
    */
