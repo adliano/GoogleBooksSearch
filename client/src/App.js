@@ -35,7 +35,7 @@ class App extends Component {
       .then(response => response.json())
       .then(results => results.items)
       .then(booksArray =>
-        this.setState({ books: booksArray }, () => console.log('Data loaded'))
+        this.setState({ books: booksArray }, () => console.log(booksArray))
       )
       .catch(err => {
         console.error(err)
@@ -70,6 +70,8 @@ class App extends Component {
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
     let _booksElements = booksArray.map(({ id, volumeInfo }) => {
+      console.log(volumeInfo);
+      
       const {
         title,
         authors,
