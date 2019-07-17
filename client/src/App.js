@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Nav from './components/Nav'
 import Paper from './components/paper'
 import { H2, P } from './components/headers'
-import BookShelve from './components/BookShelve'
 import Book from './components/Book'
 import SearchPage from './components/pages/SearchPage'
 import SavedPage from './components/pages/SavedPage'

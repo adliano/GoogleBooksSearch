@@ -24,6 +24,7 @@ const bookSeed = [
     volumeInfo: {
       title: "Turbo",
       authors: ["Jay K. Miller"],
+      previewLink: "http://books.google.com/books?id=hhiVyuHS76UC&printsec=frontcover&dq=turbo&hl=&cd=1&source=gbs_api",
       imageLinks: {
         thumbnail: "http://books.google.com/books/content?id=hhiVyuHS76UC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
       }
@@ -33,6 +34,7 @@ const bookSeed = [
     volumeInfo: {
       title: "T Is for Turbo",
       authors: ["Michael Myers"],
+      previewLink: "http://books.google.com/books?id=7opUuAEACAAJ&dq=turbo&hl=&cd=2&source=gbs_api",
     }
   },{
     id: "646PVGF2Bd8C",
@@ -48,6 +50,8 @@ const bookSeed = [
     volumeInfo: {
       title: "Turbo",
       authors: [ "Graham Robson" ],
+      previewLink: "http://books.google.com/books?id=646PVGF2Bd8C&printsec=frontcover&dq=turbo&hl=&cd=3&source=gbs_api",
+      previewLink: "http://books.google.com/books?id=ufhfa3jbow4C&q=turbo&dq=turbo&hl=&cd=4&source=gbs_api",
       imageLinks: {
         thumbnail: "http://books.google.com/books/content?id=ufhfa3jbow4C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       }
@@ -57,6 +61,7 @@ const bookSeed = [
     volumeInfo: {
       title: "Super Turbo Saves the Day!",
       authors: [ "Lee Kirby" ],
+      previewLink: "http://books.google.com/books?id=im9CDAAAQBAJ&printsec=frontcover&dq=turbo&hl=&cd=5&source=gbs_api",
       imageLinks: {
         thumbnail: "http://books.google.com/books/content?id=im9CDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       }

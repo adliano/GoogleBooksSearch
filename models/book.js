@@ -7,6 +7,7 @@ const bookSchema = new Schema(
     volumeInfo: {
       title: { type: String, required: true },
       authors: { type: Array, required: true },
+      previewLink: { type: String, required: true },
       imageLinks: {
         thumbnail: { type: String, required: false },
       }

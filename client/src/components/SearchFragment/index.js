@@ -1,7 +1,6 @@
 import React from 'react'
 import Paper from '../paper'
 import { H5 } from '../headers'
-import BookShelve from '../BookShelve'
 import Search from '@material-ui/icons/Search'
 import {
   TextField,

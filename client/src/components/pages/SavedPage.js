@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import Nav from '../Nav'
-import Paper from '../paper'
-import { H2, P } from '../headers'
 import BookShelve from '../BookShelve'
 import Book from '../Book'
+import API from '../../utils/API'
 
 class SavedPage extends Component {
   /**
@@ -17,24 +15,22 @@ class SavedPage extends Component {
    * componentDidMount()
    */
   componentDidMount () {
-    // TODO: load books here
-    console.log('implement saved page')
+    this.downloadBooks()
   }
 
   /**
-   * onSearchClick()
-   * Event listner used for search button
+   * dowloadBooks()
    */
-  onSearchClick = event => {
-    let _query = this.state.query
-    if (_query) {
-      // TODO:
-      console.log('implement saved page')
-    } else {
-      // TODO: Create a error handler later
-      console.log('Missing Query')
-    }
+  downloadBooks = () => {
+    API.getBooks()
+    .then(response => response.json())
+    .then(results=> {
+      this.setState({
+        books: results,
+      })
+    })
   }
+
   /**
    * renderBooks()
    * @method used to render <Book> on page
@@ -71,7 +67,8 @@ class SavedPage extends Component {
           description={description}
         />
       )
-    })
+    })    
+
     // Return Array of <Book> elements
     return _booksElements
   }

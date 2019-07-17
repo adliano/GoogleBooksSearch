@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import Nav from '../Nav'
-import Paper from '../paper'
-import { H2, P } from '../headers'
 import BookShelve from '../BookShelve'
 import Book from '../Book'
 import SearchFragment from '../SearchFragment'
@@ -67,7 +64,7 @@ class SearchPage extends Component {
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
     let _booksElements = booksArray.map(({ id, volumeInfo }) => {
-      console.log(volumeInfo)
+      // console.log(volumeInfo)
 
       const {
         title,
@@ -79,7 +76,7 @@ class SearchPage extends Component {
 
       const {
         thumbnail = 'https://www.naqda.gov.lk/images/img_not_available.png'
-      } = imageLinks
+      } = imageLinks      
 
       // each Book available in the JSON will be
       // Added as <Book> element in _booksElements array
