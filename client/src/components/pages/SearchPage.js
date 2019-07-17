@@ -23,7 +23,7 @@ class SearchPage extends Component {
    * componentDidMount()
    */
   componentDidMount () {
-    this.searchGoogleBooks('turbo')
+    this.searchGoogleBooks('usa')
   }
   /**
    * searchGoogleBooks
@@ -34,7 +34,7 @@ class SearchPage extends Component {
       .then(response => response.json())
       .then(results => results.items)
       .then(booksArray =>
-        this.setState({ books: booksArray }, () => console.log(booksArray))
+        this.setState({ books: booksArray }, () => console.log('data loaded'))
       )
       .catch(err => {
         console.error(err)
@@ -49,8 +49,7 @@ class SearchPage extends Component {
     if (_query) {
       this.searchGoogleBooks(this.state.query)
     } else {
-      // TODO: Create a error handler later
-      console.log('Missing Query')
+      console.error('Missing Query')
     }
   }
   /**
@@ -58,23 +57,20 @@ class SearchPage extends Component {
    * Event listner used for save fab button
    */
   onSaveClick = (id) => {
-    let _documentToSave = this.state.books[id];
-    console.log(_documentToSave)
-
     const {
       title,
       authors,
       previewLink,
       description,
-      imageLinks = {}
-    } = _documentToSave.volumeInfo
+      imageLinks: {thumbnail} = 'https://www.naqda.gov.lk/images/img_not_available.png',
+    } = this.state.books[id].volumeInfo
     
     API.saveBook({
       title,
       authors,
       previewLink,
       description,
-      imageLinks,
+      thumbnail,
     })
     .then(response => response.json())
     .then(results => {

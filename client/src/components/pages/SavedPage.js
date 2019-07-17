@@ -57,23 +57,22 @@ class SavedPage extends Component {
    * @method used to render <Book> on page
    */
   renderBooks = booksArray => {
-    // Destructing object
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
     let _booksElements = booksArray.map((volumeInfo) => {
-
+      // Destructing object
       const {
         _id,
         title,
         authors,
         previewLink,
         description,
-        imageLinks = {}
+        thumbnail,
       } = volumeInfo
 
-      const {
-        thumbnail = 'https://www.naqda.gov.lk/images/img_not_available.png'
-      } = imageLinks
+      // const {
+      //   thumbnail = 'https://www.naqda.gov.lk/images/img_not_available.png'
+      // } = imageLinks
 
       // each Book available in the JSON will be
       // Added as <Book> element in _booksElements array
