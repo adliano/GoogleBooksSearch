@@ -20,57 +20,55 @@ mongoConnection.once('open', () =>
 
 const bookSeed = [
   {
-    id: "hhiVyuHS76UC",
-    volumeInfo: {
-      title: "Turbo",
-      authors: ["Jay K. Miller"],
-      previewLink: "http://books.google.com/books?id=hhiVyuHS76UC&printsec=frontcover&dq=turbo&hl=&cd=1&source=gbs_api",
-      description: "Automotive technology.",
-      imageLinks: {
-        thumbnail: "http://books.google.com/books/content?id=hhiVyuHS76UC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-      }
-    }
-  },{
-    id: "7opUuAEACAAJ",
-    volumeInfo: {
-      title: "T Is for Turbo",
-      authors: ["Michael Myers"],
-      previewLink: "http://books.google.com/books?id=7opUuAEACAAJ&dq=turbo&hl=&cd=2&source=gbs_api",
-    }
-  },{
-    id: "646PVGF2Bd8C",
-    volumeInfo: {
-      title: "Alpine & Renault",
-      authors: ["Roy Smith"],
-      description: "The comprehensive guide for the operation and maintenance of large turbo-generators Operation and Maintenance of Large Turbo-Generators is the ultimate resource for operators and inspectors of large utility and industrial generating facilities who deal with multiple units of disparate size, origin, and vintage. It offers the complete scope of information regarding operation and maintenance of all types of turbine-driven generators built in the world. Based on the authors’ combined sixty years of generating station and design work experience, the information presented in the book is designed to inform the reader about actual machine operational problems and failure modes that occur in generating stations and other types of facilities. Readers will find very detailed coverage of: Design and construction of generators and auxiliary systems Generator operation, including interaction with the grid Monitoring, diagnostics, and protection of turbo-generators Inspection practices, including stator, rotor, and auxiliary systems Ideas for improving plant reliability and reducing costs and electrical failures Maintenance testing, including electrical and nondestructive examination Operation and Maintenance of Large Turbo-Generators comes filled with photos and graphs, commonly used inspection forms, and extensive references for each topic. It is an indispensable resource for anyone involved in the design, construction, protection, operation, maintenance, and troubleshooting of large generators in generating stations and industrial power facilities. The book is also an excellent learning tool for students, consultants, and design engineers.",
-      previewLink: "http://books.google.com/books?id=646PVGF2Bd8C&printsec=frontcover&dq=turbo&hl=&cd=3&source=gbs_api",
-      imageLinks: {
-        thumbnail: "http://books.google.com/books/content?id=646PVGF2Bd8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-      }
-    }
-  },{
-    id: "ufhfa3jbow4C",
-    volumeInfo: {
-      title: "Turbo",
-      authors: [ "Graham Robson" ],
-      previewLink: "http://books.google.com/books?id=ufhfa3jbow4C&q=turbo&dq=turbo&hl=&cd=4&source=gbs_api",
-      description: "Explains how to maintain, remove, tear down, assemble, repair, modify, and install Turbo Hydra-matic transmissions",
-      imageLinks: {
-        thumbnail: "http://books.google.com/books/content?id=ufhfa3jbow4C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      }
-    }
-  },{
-    id: "im9CDAAAQBAJ",
-    volumeInfo: {
-      title: "Super Turbo Saves the Day!",
-      authors: [ "Lee Kirby" ],
-      previewLink: "http://books.google.com/books?id=im9CDAAAQBAJ&printsec=frontcover&dq=turbo&hl=&cd=5&source=gbs_api",
-      description: "Thoroughly revised and updated Turbo Pascal retains the excellent pedagogy, outstanding clarity, and balanced presentation that marked earlier editions as leaders in computer science education. An emphasis on problem solving and algorithmic design teaches students to implement programs most effectively. A sensible organization introduces concepts where students need them most, and an extensive and varied selection of exercises and case studies support and strengthen concepts learned. In addition, all programming examples follow well-defined methodologies that reinforce proper problem-solving principles.",
-      imageLinks: {
-        thumbnail: "http://books.google.com/books/content?id=im9CDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-      }
-    }
-  },
+    "authors" : [
+            "Don M. Coerver",
+            "Suzanne B. Pasztor",
+            "Robert Buffington"
+    ],
+    "thumbnail" : "http://books.google.com/books/content?id=YSred4NyOKoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "title" : "Mexico",
+    "previewLink" : "http://books.google.com/books?id=YSred4NyOKoC&printsec=frontcover&dq=mexico&hl=&cd=1&source=gbs_api",
+    "description" : "Provides information on the events, people, and issues that have shaped twentieth-century Mexico, covering such topics as history, the economy, art, and culture.",
+    "__v" : 0
+},
+{
+    "authors" : [
+            "Celso Furtado"
+    ],
+    "thumbnail" : "http://books.google.com/books/content?id=1o7UDUXwLIIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "title" : "The Economic Growth of Brazil",
+    "previewLink" : "http://books.google.com/books?id=1o7UDUXwLIIC&printsec=frontcover&dq=brazil&hl=&cd=1&source=gbs_api",
+    "__v" : 0
+},
+{
+    "authors" : [
+            "Teresa A. Meade"
+    ],
+    "thumbnail" : "http://books.google.com/books/content?id=e6Jw-KNq2QUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "title" : "A Brief History of Brazil",
+    "previewLink" : "http://books.google.com/books?id=e6Jw-KNq2QUC&printsec=frontcover&dq=brazil&hl=&cd=2&source=gbs_api",
+    "description" : "From the Publisher: \"A Brief History of Brazil, Second Edition comes at a crucial time in Brazil's history. In the past seven years since the first edition of this book was published, the country has undergone dramatic changes. Foremost among them is the recent discovery of offshore oil and gas reserves that may allow Brazil not only to achieve self-sufficiency but also to become a major exporter of petroleum and biofuels. The nation is today richer, less in debt, and more active in international trade. It is more urbanized and making better use of its vast agricultural resources. Brazilians, although plagued by poverty, illiteracy, and crime, continue to contribute to international culture through music, dance, art, and, increasingly, film.\" A BriefHistory of Brazil, Second Edition covers all major events, people, and developments in Brazil from the precolonial and colonial periods through today. It also explores the hallmarks of Brazilian popular culture: soccer, Carnival, music, and television dramas. Basic facts, a chronology, a bibliography, and a list of suggested reading make up the appendixes.",
+    "__v" : 0
+},
+{
+    "authors" : [
+            "Karla Zimmerman"
+    ],
+    "thumbnail" : "http://books.google.com/books/content?id=2TT-wAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "title" : "The USA Book",
+    "previewLink" : "http://books.google.com/books?id=2TT-wAEACAAJ&dq=usa&hl=&cd=1&source=gbs_api",
+    "description" : "Presents a pictorial guide to each of the fifty states, describing the culture, landmarks, natural elements, cuisine, economy, urban scene, and legends of each one.",
+    "__v" : 0
+},
+{
+    "authors" : [
+            "John Gunther"
+    ],
+    "thumbnail" : "https://www.naqda.gov.lk/images/img_not_available.png",
+    "title" : "Inside U.S.A.",
+    "previewLink" : "http://books.google.com/books?id=4WTyvQEACAAJ&dq=usa&hl=&cd=2&source=gbs_api",
+    "__v" : 0
+}
 ]
 
 db.MyBook.deleteMany({})

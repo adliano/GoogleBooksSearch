@@ -6,6 +6,8 @@ import Book from '../Book'
 import SearchFragment from '../SearchFragment'
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from '../../utils/Key'
+import API from '../../utils/API'
+
 
 dotenv.config()
 
@@ -21,7 +23,7 @@ class SearchPage extends Component {
    * componentDidMount()
    */
   componentDidMount () {
-    this.searchGoogleBooks('turbo')
+    this.searchGoogleBooks('usa')
   }
   /**
    * searchGoogleBooks
@@ -32,7 +34,7 @@ class SearchPage extends Component {
       .then(response => response.json())
       .then(results => results.items)
       .then(booksArray =>
-        this.setState({ books: booksArray }, () => console.log(booksArray))
+        this.setState({ books: booksArray }, () => console.log('data loaded'))
       )
       .catch(err => {
         console.error(err)
@@ -47,9 +49,35 @@ class SearchPage extends Component {
     if (_query) {
       this.searchGoogleBooks(this.state.query)
     } else {
-      // TODO: Create a error handler later
-      console.log('Missing Query')
+      console.error('Missing Query')
     }
+  }
+  /**
+   * onSaveClick()
+   * Event listner used for save fab button
+   */
+  onSaveClick = (id) => {
+    const {
+      title,
+      authors,
+      previewLink,
+      description,
+      imageLinks: {thumbnail} = 'https://www.naqda.gov.lk/images/img_not_available.png',
+    } = this.state.books[id].volumeInfo
+    
+    API.saveBook({
+      title,
+      authors,
+      previewLink,
+      description,
+      thumbnail,
+    })
+    .then(response => response.json())
+    .then(results => {
+      console.log(results)
+      console.log('book saved')
+    })
+    .catch(err => console.error(err))
   }
   /**
    * handleInputChange
@@ -66,14 +94,7 @@ class SearchPage extends Component {
     // Destructing object
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
-    let _booksElements = booksArray.map(({ id, volumeInfo }) => {
-      // console.log(volumeInfo)
-
-      let element = (
-        <Fab color='primary' onClick={this.onSearchClick}>
-          <Save />
-        </Fab>
-      )
+    let _booksElements = booksArray.map(({ volumeInfo }, index) => {
 
       const {
         title,
@@ -91,14 +112,18 @@ class SearchPage extends Component {
       // Added as <Book> element in _booksElements array
       return (
         <Book
-          key={id}
-          id={id}
+          key={index}
+          id={index}
           title={title}
           author={authors}
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}
-          fabButton={element}
+          fabButton={
+            <Fab color='primary' onClick={() => this.onSaveClick(index)}>
+              <Save />
+            </Fab>
+          }
         />
       )
     })
@@ -124,3 +149,19 @@ class SearchPage extends Component {
 }
 
 export default SearchPage
+
+
+/*
+{
+    title: 'Super Turbo Saves the Day!',
+    authors: ['Lee Kirby'],
+    previewLink:
+      'http://books.google.com/books?id=im9CDAAAQBAJ&printsec=frontcover&dq=turbo&hl=&cd=5&source=gbs_api',
+    description:
+      'Thoroughly revised and updated Turbo Pascal retains the excellent pedagogy, outstanding clarity, and balanced presentation that marked earlier editions as leaders in computer science education. An emphasis on problem solving and algorithmic design teaches students to implement programs most effectively. A sensible organization introduces concepts where students need them most, and an extensive and varied selection of exercises and case studies support and strengthen concepts learned. In addition, all programming examples follow well-defined methodologies that reinforce proper problem-solving principles.',
+    imageLinks: {
+      thumbnail:
+        'http://books.google.com/books/content?id=im9CDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+    }
+  }
+*/
