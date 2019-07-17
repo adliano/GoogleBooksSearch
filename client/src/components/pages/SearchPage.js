@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { Fab } from '@material-ui/core/'
+import { Save } from '@material-ui/icons/'
 import BookShelve from '../BookShelve'
 import Book from '../Book'
 import SearchFragment from '../SearchFragment'
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from '../../utils/Key'
+
 dotenv.config()
 
 class SearchPage extends Component {
@@ -66,6 +69,12 @@ class SearchPage extends Component {
     let _booksElements = booksArray.map(({ id, volumeInfo }) => {
       // console.log(volumeInfo)
 
+      let element = (
+        <Fab color='primary' onClick={this.onSearchClick}>
+          <Save />
+        </Fab>
+      )
+
       const {
         title,
         authors,
@@ -76,7 +85,7 @@ class SearchPage extends Component {
 
       const {
         thumbnail = 'https://www.naqda.gov.lk/images/img_not_available.png'
-      } = imageLinks      
+      } = imageLinks
 
       // each Book available in the JSON will be
       // Added as <Book> element in _booksElements array
@@ -89,6 +98,7 @@ class SearchPage extends Component {
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}
+          fabButton={element}
         />
       )
     })
