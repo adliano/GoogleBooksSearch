@@ -60,9 +60,27 @@ class SearchPage extends Component {
   onSaveClick = (id) => {
     let _documentToSave = this.state.books[id];
     console.log(_documentToSave)
-    API.saveBook()
+
+    const {
+      title,
+      authors,
+      previewLink,
+      description,
+      imageLinks = {}
+    } = _documentToSave.volumeInfo
+    
+    API.saveBook({
+      title,
+      authors,
+      previewLink,
+      description,
+      imageLinks,
+    })
     .then(response => response.json())
-    .then(results => console.log('book saved'))
+    .then(results => {
+      console.log(results)
+      console.log('book saved')
+    })
     .catch(err => console.error(err))
   }
   /**
@@ -81,11 +99,6 @@ class SearchPage extends Component {
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
     let _booksElements = booksArray.map(({ volumeInfo }, index) => {
-      // let element = (
-      //   <Fab color='primary' onClick={this.onSearchClick}>
-      //     <Save />
-      //   </Fab>
-      // )
 
       const {
         title,
@@ -140,3 +153,19 @@ class SearchPage extends Component {
 }
 
 export default SearchPage
+
+
+/*
+{
+    title: 'Super Turbo Saves the Day!',
+    authors: ['Lee Kirby'],
+    previewLink:
+      'http://books.google.com/books?id=im9CDAAAQBAJ&printsec=frontcover&dq=turbo&hl=&cd=5&source=gbs_api',
+    description:
+      'Thoroughly revised and updated Turbo Pascal retains the excellent pedagogy, outstanding clarity, and balanced presentation that marked earlier editions as leaders in computer science education. An emphasis on problem solving and algorithmic design teaches students to implement programs most effectively. A sensible organization introduces concepts where students need them most, and an extensive and varied selection of exercises and case studies support and strengthen concepts learned. In addition, all programming examples follow well-defined methodologies that reinforce proper problem-solving principles.',
+    imageLinks: {
+      thumbnail:
+        'http://books.google.com/books/content?id=im9CDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+    }
+  }
+*/

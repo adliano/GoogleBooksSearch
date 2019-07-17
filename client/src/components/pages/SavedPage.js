@@ -60,9 +60,10 @@ class SavedPage extends Component {
     // Destructing object
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
-    let _booksElements = booksArray.map(({ _id, volumeInfo }) => {
+    let _booksElements = booksArray.map((volumeInfo) => {
 
       const {
+        _id,
         title,
         authors,
         previewLink,
