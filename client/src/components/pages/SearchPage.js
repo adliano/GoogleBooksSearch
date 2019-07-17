@@ -6,6 +6,8 @@ import Book from '../Book'
 import SearchFragment from '../SearchFragment'
 import dotenv from 'dotenv'
 import { GoogleBooksAPI as Keys } from '../../utils/Key'
+import API from '../../utils/API'
+
 
 dotenv.config()
 
@@ -52,6 +54,18 @@ class SearchPage extends Component {
     }
   }
   /**
+   * onSaveClick()
+   * Event listner used for save fab button
+   */
+  onSaveClick = (id) => {
+    let _documentToSave = this.state.books[id];
+    console.log(_documentToSave)
+    API.saveBook()
+    .then(response => response.json())
+    .then(results => console.log('book saved'))
+    .catch(err => console.error(err))
+  }
+  /**
    * handleInputChange
    */
   handleInputChange = event => {
@@ -66,14 +80,12 @@ class SearchPage extends Component {
     // Destructing object
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
-    let _booksElements = booksArray.map(({ id, volumeInfo }) => {
-      // console.log(volumeInfo)
-
-      let element = (
-        <Fab color='primary' onClick={this.onSearchClick}>
-          <Save />
-        </Fab>
-      )
+    let _booksElements = booksArray.map(({ volumeInfo }, index) => {
+      // let element = (
+      //   <Fab color='primary' onClick={this.onSearchClick}>
+      //     <Save />
+      //   </Fab>
+      // )
 
       const {
         title,
@@ -91,14 +103,18 @@ class SearchPage extends Component {
       // Added as <Book> element in _booksElements array
       return (
         <Book
-          key={id}
-          id={id}
+          key={index}
+          id={index}
           title={title}
           author={authors}
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}
-          fabButton={element}
+          fabButton={
+            <Fab color='primary' onClick={() => this.onSaveClick(index)}>
+              <Save />
+            </Fab>
+          }
         />
       )
     })
