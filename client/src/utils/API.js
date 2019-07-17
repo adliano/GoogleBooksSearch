@@ -25,5 +25,3 @@ export default {
     })
   }
 };
-
-// let _URL = `https://www.googleapis.com/books/v1/volumes?q=` + 'bookname'

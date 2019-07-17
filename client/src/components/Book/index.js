@@ -53,9 +53,6 @@ function Book (props) {
                   >
                     <Grid item xs={2}>
                       {props.fabButton}
-                      {/* <Fab color='primary' onClick={props.saveEventListener}>
-                        <Save />
-                      </Fab> */}
                     </Grid>
                     <Grid item xs={2}>
                       <Fab
