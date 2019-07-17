@@ -3,7 +3,7 @@ import { H3, H5, P } from '../headers'
 
 import { Box, Grid, Card, CardMedia, Fab } from '@material-ui/core/'
 
-import { Visibility, Save } from '@material-ui/icons/'
+import { Visibility } from '@material-ui/icons/'
 
 function Book (props) {
   /**
@@ -52,9 +52,7 @@ function Book (props) {
                     }}
                   >
                     <Grid item xs={2}>
-                      <Fab color='primary' onClick={props.saveEventListener}>
-                        <Save />
-                      </Fab>
+                      {props.fabButton}
                     </Grid>
                     <Grid item xs={2}>
                       <Fab
