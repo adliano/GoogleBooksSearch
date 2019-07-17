@@ -15,7 +15,7 @@ export default function PaperSheet (props) {
     <>
     <Box mb={-14}>
       <Grid container justify='center'>
-        <Grid item item xs={12} md={12} lg={11} xl={11}>
+        <Grid item xs={12} md={12} lg={11} xl={11}>
           <Paper className={classes.root}>{props.children}</Paper>
         </Grid>
       </Grid>

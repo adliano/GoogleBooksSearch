@@ -1,13 +1,7 @@
 import React from 'react'
 import { H3, H5, P } from '../headers'
 
-import {
-  Box,
-  Grid,
-  Card,
-  CardMedia,
-  Fab
-} from '@material-ui/core/'
+import { Box, Grid, Card, CardMedia, Fab } from '@material-ui/core/'
 
 import { Visibility, Save } from '@material-ui/icons/'
 
@@ -17,7 +11,13 @@ function Book (props) {
    */
   return (
     <>
-      <Box border={1} mb={1} borderColor='grey.500' borderRadius={5} id={props.id}>
+      <Box
+        border={1}
+        mb={1}
+        borderColor='grey.500'
+        borderRadius={5}
+        id={props.id}
+      >
         <Grid container alignItems='center'>
           {/* Image Container */}
           <Grid item sm={5} xs={12}>
@@ -57,7 +57,11 @@ function Book (props) {
                       </Fab>
                     </Grid>
                     <Grid item xs={2}>
-                      <Fab color='secondary' href={props.previewLink} target="_blank">
+                      <Fab
+                        color='secondary'
+                        href={props.previewLink}
+                        target='_blank'
+                      >
                         <Visibility />
                       </Fab>
                     </Grid>

@@ -65,6 +65,7 @@ class SavedPage extends Component {
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}
+          
         />
       )
     })    
