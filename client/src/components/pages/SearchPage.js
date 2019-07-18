@@ -5,9 +5,8 @@ import BookShelve from '../BookShelve'
 import Book from '../Book'
 import SearchFragment from '../SearchFragment'
 import dotenv from 'dotenv'
-import { GoogleBooksAPI as Keys } from '../../utils/Key'
 import API from '../../utils/API'
-
+import { GoogleBooksAPI as Keys } from '../../utils/Key'
 
 dotenv.config()
 
@@ -19,15 +18,8 @@ class SearchPage extends Component {
     books: []
   }
   /**
-   * Lifecycle
-   * componentDidMount()
-   */
-  componentDidMount () {
-    // this.searchGoogleBooks('usa')
-  }
-  /**
    * searchGoogleBooks
-   * @method to get books from google API
+   * used to get books from google API
    */
   searchGoogleBooks = query => {
     fetch(`${Keys.URL}?q=${query}`)
@@ -88,7 +80,7 @@ class SearchPage extends Component {
   }
   /**
    * renderBooks()
-   * @method used to render <Book> on page
+   * used to render <Book> on page
    */
   renderBooks = booksArray => {
     // Destructing object
@@ -149,19 +141,3 @@ class SearchPage extends Component {
 }
 
 export default SearchPage
-
-
-/*
-{
-    title: 'Super Turbo Saves the Day!',
-    authors: ['Lee Kirby'],
-    previewLink:
-      'http://books.google.com/books?id=im9CDAAAQBAJ&printsec=frontcover&dq=turbo&hl=&cd=5&source=gbs_api',
-    description:
-      'Thoroughly revised and updated Turbo Pascal retains the excellent pedagogy, outstanding clarity, and balanced presentation that marked earlier editions as leaders in computer science education. An emphasis on problem solving and algorithmic design teaches students to implement programs most effectively. A sensible organization introduces concepts where students need them most, and an extensive and varied selection of exercises and case studies support and strengthen concepts learned. In addition, all programming examples follow well-defined methodologies that reinforce proper problem-solving principles.',
-    imageLinks: {
-      thumbnail:
-        'http://books.google.com/books/content?id=im9CDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
-    }
-  }
-*/

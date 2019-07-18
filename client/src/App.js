@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { BrowserRouter, Route } from "react-router-dom";
 import Nav from './components/Nav'
 import Paper from './components/paper'
@@ -7,9 +7,7 @@ import SearchPage from './components/pages/SearchPage'
 import SavedPage from './components/pages/SavedPage'
 
 
-class App extends Component {
-
-  render () {
+function App() {
     return (
       <BrowserRouter>
       <>
@@ -23,7 +21,6 @@ class App extends Component {
         </>
       </BrowserRouter>
     )
-  }
 }
 
 export default App

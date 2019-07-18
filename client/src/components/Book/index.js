@@ -24,7 +24,11 @@ function Book (props) {
             <Card>
               <CardMedia
                 style={{ height: 250, margin: '1.5%' }}
-                image={props.thumbnail}
+                image={
+                  props.thumbnail
+                    ? props.thumbnail
+                    : 'https://www.naqda.gov.lk/images/img_not_available.png'
+                }
                 title='Book Image'
               />
             </Card>
