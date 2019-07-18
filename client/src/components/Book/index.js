@@ -7,7 +7,7 @@ import { Visibility } from '@material-ui/icons/'
 
 function Book (props) {
   /**
-   * Return
+   * Return grid layout to format how book will be render
    */
   return (
     <>

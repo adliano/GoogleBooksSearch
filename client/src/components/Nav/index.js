@@ -6,8 +6,8 @@ import {
   Toolbar,
   IconButton
 } from '@material-ui/core'
-
 import { Search as SearchIcon, Save as SaveIcon } from '@material-ui/icons'
+import { H6 } from '../headers'
 
 import Style from './styles'
 
@@ -24,9 +24,9 @@ export default function Nav (props) {
             color='inherit'
             aria-label='Menu'
           />
-          <Typography variant='h6' className={classes.title}>
+          <H6 className={classes.title}>
             Google Books Search
-          </Typography>
+          </H6>
           <Button color='inherit' href='/'>
             <SearchIcon />
           </Button>
