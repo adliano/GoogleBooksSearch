@@ -11,7 +11,7 @@ import { Search as SearchIcon, Save as SaveIcon } from '@material-ui/icons'
 
 import Style from './styles'
 
-export default function Nav () {
+export default function Nav (props) {
   const classes = Style()
 
   return (
@@ -27,10 +27,10 @@ export default function Nav () {
           <Typography variant='h6' className={classes.title}>
             Google Books Search
           </Typography>
-          <Button color='inherit'>
+          <Button color='inherit' href='/'>
             <SearchIcon />
           </Button>
-          <Button color='inherit'>
+          <Button color='inherit' href='/saved'>
             <SaveIcon />
           </Button>
         </Toolbar>
@@ -38,27 +38,3 @@ export default function Nav () {
     </div>
   )
 }
-
-/*
-  -------------- NOtes -------------
-  className={Style.root}
-
-  // <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-  //   <a className="navbar-brand" href="/">
-  //     React Reading List
-  //   </a>
-  // </nav>
-
-  className={Style.title}
-  // <AppBar fixed='top'>
-    //   <BookIcon />
-    //   <Typography className={Style.title} variant='h6' noWrap>
-    //   <Typography variant='h6' noWrap>
-    //     Google Books
-    //   </Typography>
-    //   <IconButton aria-label='Show 4 new mails' color='inherit'>
-    //       <SearchIcon />
-    //   </IconButton>
-    // </AppBar>
-
-*/

@@ -23,7 +23,7 @@ class SearchPage extends Component {
    * componentDidMount()
    */
   componentDidMount () {
-    this.searchGoogleBooks('usa')
+    // this.searchGoogleBooks('usa')
   }
   /**
    * searchGoogleBooks
