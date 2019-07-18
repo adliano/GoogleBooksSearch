@@ -73,7 +73,7 @@ class SavedPage extends Component {
           key={_id}
           id={_id}
           title={title}
-          author={authors}
+          authors={authors.join(', ')}
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}

@@ -23,7 +23,7 @@ function Book (props) {
           <Grid item sm={5} xs={12}>
             <Card>
               <CardMedia
-                style={{ height: 250, margin: '1.5%' }}
+                style={{ height: '45vw', margin: '1.5%', display: 'block', }}
                 image={
                   props.thumbnail
                     ? props.thumbnail
@@ -38,8 +38,7 @@ function Book (props) {
             <Grid container direction='column' style={{ margin: '1%' }}>
               <Grid item style={{ height: '100%', padding: '2%' }}>
                 <H3>{props.title}</H3>
-                <H5>{props.gretting}</H5>
-                <H5>{props.authors}</H5>
+                <H5 style={{ marginBottom: '2.5%' }}>{props.authors}</H5>
                 <P>{props.description}</P>
               </Grid>
               <Grid item style={{ height: '100%', padding: '2%' }}>

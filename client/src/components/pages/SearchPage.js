@@ -48,28 +48,30 @@ class SearchPage extends Component {
    * onSaveClick()
    * Event listner used for save fab button
    */
-  onSaveClick = (id) => {
+  onSaveClick = id => {
     const {
       title,
       authors,
       previewLink,
       description,
-      imageLinks: {thumbnail} = 'https://www.naqda.gov.lk/images/img_not_available.png',
+      imageLinks: {
+        thumbnail
+      } = 'https://www.naqda.gov.lk/images/img_not_available.png'
     } = this.state.books[id].volumeInfo
-    
+
     API.saveBook({
       title,
       authors,
       previewLink,
       description,
-      thumbnail,
+      thumbnail
     })
-    .then(response => response.json())
-    .then(results => {
-      console.log(results)
-      console.log('book saved')
-    })
-    .catch(err => console.error(err))
+      .then(response => response.json())
+      .then(results => {
+        console.log(results)
+        console.log('book saved')
+      })
+      .catch(err => console.error(err))
   }
   /**
    * handleInputChange
@@ -87,7 +89,6 @@ class SearchPage extends Component {
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
     let _booksElements = booksArray.map(({ volumeInfo }, index) => {
-
       const {
         title,
         authors,
@@ -107,7 +108,7 @@ class SearchPage extends Component {
           key={index}
           id={index}
           title={title}
-          author={authors}
+          authors={authors.join(', ')}
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}
