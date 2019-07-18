@@ -2,13 +2,7 @@ import React from 'react'
 import Paper from '../paper'
 import { H5 } from '../headers'
 import Search from '@material-ui/icons/Search'
-import {
-  TextField,
-  Box,
-  IconButton,
-  InputAdornment,
- } from '@material-ui/core'
-
+import { TextField, Box, IconButton, InputAdornment } from '@material-ui/core'
 
 function SearchFragment (props) {
   return (
@@ -28,10 +22,7 @@ function SearchFragment (props) {
             InputProps={{
               endAdornment: (
                 <InputAdornment position='end'>
-                  <IconButton
-                    edge='end'
-                    onClick={props.searchEventListner}
-                  >
+                  <IconButton edge='end' onClick={props.searchEventListner}>
                     <Search />
                   </IconButton>
                 </InputAdornment>

@@ -17,7 +17,7 @@ export function H2 (props) {
 }
 
 export function H3 (props) {
-  /// Return the <h2> component
+  /// Return the <h3> component
   return (
     <>
       <Typography variant='h3' component='h3' {...props}>
@@ -26,6 +26,18 @@ export function H3 (props) {
     </>
   )
 }
+
+export function H6 (props) {
+  /// Return the <h6> component
+  return (
+    <>
+      <Typography variant='h6' component='h6' {...props}>
+        {props.children}
+      </Typography>
+    </>
+  )
+}
+
 
 export function P (props) {
     /// Return the <p> component

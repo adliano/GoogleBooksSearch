@@ -5,9 +5,8 @@ import BookShelve from '../BookShelve'
 import Book from '../Book'
 import SearchFragment from '../SearchFragment'
 import dotenv from 'dotenv'
-import { GoogleBooksAPI as Keys } from '../../utils/Key'
 import API from '../../utils/API'
-
+import { GoogleBooksAPI as Keys } from '../../utils/Key'
 
 dotenv.config()
 
@@ -19,15 +18,8 @@ class SearchPage extends Component {
     books: []
   }
   /**
-   * Lifecycle
-   * componentDidMount()
-   */
-  componentDidMount () {
-    // this.searchGoogleBooks('usa')
-  }
-  /**
    * searchGoogleBooks
-   * @method to get books from google API
+   * used to get books from google API
    */
   searchGoogleBooks = query => {
     fetch(`${Keys.URL}?q=${query}`)
@@ -56,28 +48,30 @@ class SearchPage extends Component {
    * onSaveClick()
    * Event listner used for save fab button
    */
-  onSaveClick = (id) => {
+  onSaveClick = id => {
     const {
       title,
       authors,
       previewLink,
       description,
-      imageLinks: {thumbnail} = 'https://www.naqda.gov.lk/images/img_not_available.png',
+      imageLinks: {
+        thumbnail
+      } = 'https://www.naqda.gov.lk/images/img_not_available.png'
     } = this.state.books[id].volumeInfo
-    
+
     API.saveBook({
       title,
       authors,
       previewLink,
       description,
-      thumbnail,
+      thumbnail
     })
-    .then(response => response.json())
-    .then(results => {
-      console.log(results)
-      console.log('book saved')
-    })
-    .catch(err => console.error(err))
+      .then(response => response.json())
+      .then(results => {
+        console.log(results)
+        console.log('book saved')
+      })
+      .catch(err => console.error(err))
   }
   /**
    * handleInputChange
@@ -88,14 +82,13 @@ class SearchPage extends Component {
   }
   /**
    * renderBooks()
-   * @method used to render <Book> on page
+   * used to render <Book> on page
    */
   renderBooks = booksArray => {
     // Destructing object
     // Some books doesn't have `imageLinks` available
     // Therefor default img was set to void application to crash
     let _booksElements = booksArray.map(({ volumeInfo }, index) => {
-
       const {
         title,
         authors,
@@ -115,7 +108,7 @@ class SearchPage extends Component {
           key={index}
           id={index}
           title={title}
-          author={authors}
+          authors={authors.join(', ')}
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}
@@ -149,19 +142,3 @@ class SearchPage extends Component {
 }
 
 export default SearchPage
-
-
-/*
-{
-    title: 'Super Turbo Saves the Day!',
-    authors: ['Lee Kirby'],
-    previewLink:
-      'http://books.google.com/books?id=im9CDAAAQBAJ&printsec=frontcover&dq=turbo&hl=&cd=5&source=gbs_api',
-    description:
-      'Thoroughly revised and updated Turbo Pascal retains the excellent pedagogy, outstanding clarity, and balanced presentation that marked earlier editions as leaders in computer science education. An emphasis on problem solving and algorithmic design teaches students to implement programs most effectively. A sensible organization introduces concepts where students need them most, and an extensive and varied selection of exercises and case studies support and strengthen concepts learned. In addition, all programming examples follow well-defined methodologies that reinforce proper problem-solving principles.',
-    imageLinks: {
-      thumbnail:
-        'http://books.google.com/books/content?id=im9CDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
-    }
-  }
-*/
