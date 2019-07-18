@@ -17,6 +17,7 @@ function App () {
         </Paper>
         <Route exact path='/' component={SearchPage} />
         <Route exact path='/saved' component={SavedPage} />
+      </>
     </BrowserRouter>
   )
 }
