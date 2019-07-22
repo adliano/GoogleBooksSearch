@@ -108,7 +108,7 @@ class SearchPage extends Component {
           key={index}
           id={index}
           title={title}
-          authors={authors.join(', ')}
+          authors={authors}
           previewLink={previewLink}
           thumbnail={thumbnail}
           description={description}
